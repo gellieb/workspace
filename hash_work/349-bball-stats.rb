@@ -231,10 +231,14 @@ def largest_foot(hash)
   hash.each do |team_loc, team_hash|
     team_hash[:players].each do |player_id|
       arr << player_id[:shoe_size]
-      p arr.max
+    end
+  end
+  hash.each do |team_loc, team_hash|
+    team_hash[:players].each do |player_id|
       p player_id[:player_name] if player_id[:shoe_size]== arr.max
     end
   end
+
 end
 
 largest_foot(game)
