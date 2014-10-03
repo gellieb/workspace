@@ -1,7 +1,7 @@
 # v4 REDO THE RANDOM ASSIGN v3
 # You may take your answer from the earlier Random Assign exercise
 # and modify it for the following Hash data structure:
-require 'pry'
+
 
 classes = {
   :students => {:girls => ["Pearl", "Elizabeth", "Mary", "Lydia"], 
@@ -23,18 +23,11 @@ until classes[:students][:girls].empty? && classes[:students][:boys].empty?
 			classes[:students][:boys].delete_at(0)
 			classes[:exercises].delete(exercise1)
 	end
-
 	if response == 'next'
 		puts "#{girl} will present #{exercise2}."
 			classes[:students][:girls].delete_at(0)
 			classes[:exercises].delete(exercise2)
 	end
-	
-
-
-p classes
-puts
-
 end
 
 
