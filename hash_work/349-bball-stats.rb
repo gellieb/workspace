@@ -3,7 +3,9 @@
 # twists and turns in and out of arrays and hashes. 
 # It's critical to learn to navigate through json as a web dev! 
 # Drill down carefully. Play with IRB or, better yet, binding pry.
-#require 'pry'
+
+require 'pry'
+
 game = {
   :home => { :team_name => "Charlotte Hornets",
              :colors    => ["Turquoise", "Purple"],
@@ -140,37 +142,103 @@ game = {
 
 
 
-#binding.pry 
+# binding.pry 
+
+
 puts "Q1:"
 # Create method that can return the number of points scored for any player.
-iter = 0
-until (game[:home][:players].length)-1
-  puts "#{game[:home][:players][iter][:player_name]} has #{game[:home][:players][iter][:stats][:points]} points"
-  iter+=1
+
+def players_score(hash, player)
+  hash.each do |team, team_info|
+    team_info[:players].each do |player_info, data|
+      return player_info[:stats][:points] if player_info[:player_name]== player
+    end
+  end
 end
+
+puts players_score(game, "Jason Terry")
+
+
+
+# end
+
+# 
+# iter = 0
+# until (game[:home][:players].length)-1
+#   puts "#{game[:home][:players][iter][:player_name]} has #{game[:home][:players][iter][:stats][:points]} points"
+#   iter+=1
+# end
 
 puts "\nQ2:"
 # Method that can return the shoe size for any player.
+def sneaker_size(hash, player)
+  hash.each do |team, team_info|
+    team_info[:players].each do |player_info, data|
+      return player_info[:shoe_size]if player_info[:player_name]== player
+    end
+  end
+end
+
+puts sneaker_size(game, "Jason Terry")
 
 
 
 puts "\nQ3:"
 # Method that returns both colors for any team.
+def team_color(hash, team)
+  hash.each do |location, team_info|
+    return team_info[:colors] if team_info[:team_name]== team
+    
+  end
+end
+    
+
+puts team_color(game, "Brooklyn Nets")
 
 
 
 puts "\nQ4:"
 # Method that returns both teams names.
-
+def team_names(hash)
+  hash.each do |location, team_info|
+    team_info.each do |team_id, name|
+      p name if team_id == :team_name
+    end
+  end
+end
+team_names(game)
 
 
 puts "\nQ5:"
 # Method that returns all the player numbers for a team.
 
+def all_players(hash)
+  hash.each do |team, team_info|
+    team_info[:players].each do |player_info, data|
+      p player_info[:player_name]
+    end
+  end
+end
 
+all_players(game)
 
 puts "\nQ6:"
 # Method that returns the rebounds for the player with the largest shoe size.
+# I'm creating a method that returns the name of the player with the largest shoe size, 
+#but it outputs 2 names (Jeff Adrien and Mason Plumlee, the last of the sorted array)
+def largest_foot(hash)
+  arr = []
+  hash.each do |team_loc, team_hash|
+    team_hash[:players].each do |player_id|
+      arr << player_id[:shoe_size]
+      p arr.max
+      p player_id[:player_name] if player_id[:shoe_size]== arr.max
+    end
+  end
+end
+
+largest_foot(game)
+
 
 
 
@@ -189,4 +257,12 @@ puts "\nQ9:"
 
 puts "\nQ10:"
 # Method that returns true if the player with the longest name had the most steals
+
+
+
+
+
+
+
+
 
