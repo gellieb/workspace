@@ -142,7 +142,7 @@ game = {
 
 
 
-# binding.pry 
+binding.pry 
 
 
 puts "Q1:"
@@ -224,6 +224,7 @@ all_players(game)
 
 puts "\nQ6:"
 # Method that returns the rebounds for the player with the largest shoe size.
+
 # I'm creating a method that returns the name of the player with the largest shoe size, 
 #but it outputs 2 names (Jeff Adrien and Mason Plumlee, the last of the sorted array)
 def largest_foot(hash)
@@ -232,10 +233,9 @@ def largest_foot(hash)
     team_hash[:players].each do |player_id|
       arr << player_id[:shoe_size]
     end
-  end
-  hash.each do |team_loc, team_hash|
     team_hash[:players].each do |player_id|
-      p player_id[:player_name] if player_id[:shoe_size]== arr.max
+      #p player_id[:player_name] if player_id[:shoe_size]== arr.max # returns player with largest shoe size
+      p player_id[:stats][:rebounds] if player_id[:shoe_size]== arr.max #rebounds 
     end
   end
 
@@ -249,10 +249,55 @@ largest_foot(game)
 puts "\nQ7:"
 # Method that returns which player has the most points.
 
+def mvp(hash)
+  arr = []
+  hash.each do |team_loc, team_hash|
+    team_hash[:players].each do |player_id, data|
+      arr << player_id[:stats][:points]
+    end
+    team_hash[:players].each do |player_id, data|
+      p player_id[:player_name] if player_id[:stats][:points]== arr.max
+    end
+  end
+end
+mvp(game)
 
 
 puts "\nQ8:"
 # Method that returns Which team has the most points.
+# def most_points(hash)
+#   arr_1 = []
+#   hash.each do |team_loc, team_hash|
+#     team_hash[:players].each do |player_id, data|
+#       arr_1 << player_id[:stats][:points]
+#     end
+#   end
+#   p arr_1
+
+
+# end
+
+
+# most_points(game)
+def team_win(hash)
+  arr = []
+  mvp = ""
+  hash.values[0].each do |team, team_hash|
+    team_hash[:stats].each do |indiv_points, data|
+      p arr << indiv_points[:points]
+    end
+  #   team_hash[:players].each do |player_id, data|
+  #     mvp << player_id[:player_name] if player_id[:stats][:points]== arr.max
+  #     p team_loc if player_id[:player_name] == mvp
+  #   end
+  end
+  arr
+end
+team_win(game)
+
+
+
+
 
 
 puts "\nQ9:"
@@ -261,6 +306,19 @@ puts "\nQ9:"
 
 puts "\nQ10:"
 # Method that returns true if the player with the longest name had the most steals
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
