@@ -22,7 +22,28 @@ pigeon_data = {
     "City Hall" => ["Andrew"]
   }
 }
-binding pry
+#binding pry
+
+
+pigeon_list= {}
+names = []
+pigeon_data.each do |p_key, p_value|
+  names << p_value.values
+end
+ names = names.flatten.uniq!
+names.each do |name|
+  pigeon_list[name] = {:color =>[], :gender=>[], :lives=>[]}
+end
+
+p pigeon_list
+
+
+
+
+
+
+
+
 # Iterate over the hash above collecting each pigeon by name 
 # and rebuild it into the hash below that displays the 
 # individual attributes of each bird.
@@ -64,4 +85,3 @@ binding pry
 #     :lives => "Central Park"
 #   }
 # }
-# binding pry
