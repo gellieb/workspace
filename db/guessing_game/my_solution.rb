@@ -18,15 +18,21 @@ class GuessingGame
   end
   
   def guess(num)
-  	return :high if num > @answer
-  	return :low if num < @answer
-  	return :correct if num == @answer
+  	@num = num
+  	@swapped = false
+  	return :high if @num > @answer
+  	return :low if @num < @answer
+  	if @num == @answer
+  		@swapped = true
+  		return :correct 
+  	end
   end
   def solved?
-  	return false if (guess(num)== :high || guess(num)== :low)
-  	return true if guess(num) == :correct
+  	# return false if (self.guess(@num)== :high || self.guess(@num)== :low)
+  	# return true if self.guess(@num) == :correct
+  	return false if @num != @answer
+  	return true if @swapped == true
   end
-
 
 
   # Make sure you define the other required methods, too
