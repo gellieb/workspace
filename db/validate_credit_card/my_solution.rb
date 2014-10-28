@@ -28,32 +28,62 @@ class CreditCard
 	end
 
 	def check_card
-		@doubled_arr = []
-		@sum = ""
-		@arr = @card.to_s.split("")
-		@arr.each do |digit|
-# p @arr.index(digit)
-			if @arr.index(digit)%2 == 0 || @arr.index(digit) == 0
-				@doubled_arr << digit.to_i*2
-			else @arr.index(digit)%2 == 1
-				@doubled_arr << digit.to_i
-			end
-		end
 
-		@resplit = @doubled_arr.join.split("")
-		@mapped = @resplit.map{|x|x.to_i}
-		@sum = @mapped.inject(:+)
-	p @resplit
-	p @mapped
-	p @sum		
-		return false if @sum.to_i % 10 != 0
-		return true if @sum.to_i % 10 == 0
+		self.doubles_from_first
+		self.sum_digit
+# 		@doubled_arr = []
+# 		@sum = ""
+# 		@arr = @card.to_s.split("")
+# 		@arr.each do |digit|
+# # p @arr.index(digit)
+# 			if @arr.index(digit)%2 == 0 || @arr.index(digit) == 0
+# 				@doubled_arr << digit.to_i*2
+# 			else @arr.index(digit)%2 == 1
+# 				@doubled_arr << digit.to_i
+# 			end
+# 		end
+
+# 		@resplit = @doubled_arr.join.split("")
+# 		@mapped = @resplit.map{|x|x.to_i}
+# 		@sum = @mapped.inject(:+)
+# 	p @resplit
+# 	p @mapped
+# 	p @sum		
+# 		return false if @sum.to_i % 10 != 0
+# 		return true if @sum.to_i % 10 == 0
 		
 	end
 
+	def doubles_from_first
+		@doubled_arr = []
+		@arr = @card.to_s.split("")
+		iter = 0
+		while iter < @arr.length
+		# p @arr[iter]
+			if iter == 0 || iter%2 == 0 
+				@doubled_arr << @arr[iter].to_i*2
+				iter+= 1
+			elsif iter%2 == 1 || iter== 1
+				@doubled_arr << @arr[iter].to_i
+				iter+=1
+			end
+			
+		end
+		@doubled_arr
+	end
+
+	def sum_digit
+		@sum=	@doubled_arr.join.split("").map{|x|x.to_i}.inject(:+)
+		return false if @sum.to_i % 10 != 0
+		return true if @sum.to_i % 10 == 0
+
+	end
+
+
+
+
 
 end
-
 
 
 # 4. Refactored Solution
@@ -61,7 +91,6 @@ end
 
 
 
-8+4+0+8+0+4+2+2+6+4+1+0+6+1+4+8+1+8+2
 
 
 # 1. DRIVER TESTS GO BELOW THIS LINE
