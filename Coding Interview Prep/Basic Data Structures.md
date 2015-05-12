@@ -2,6 +2,7 @@
 
 ##Dynamic Array
 + aka: Vector, Resizable array, ArrayList
+
 ###What it is
 + Simplest dynamic array is a wrapper around a static array. When the original array runs out of space, a new larger array is allocated, and the contents of the original array are copied to the new array
 + Elements accessed like a static array
@@ -24,6 +25,7 @@
 
 ##Linked List
 + aka: Singly linked list, Doubly linked list
+
 ###What it is
 + A linked list wraps each element in a node.
 + Singly linked list: each node contains a reference to the next node.
@@ -43,6 +45,7 @@
 
 ##Binary Tree
 + aka: Red-black tree
+
 ###What it is
 + A binary tree consists of nodes, each with two children. 
     + Left child is always less than the parent
@@ -64,6 +67,8 @@
 
 ##Hash Map
 + aka: hash table
+
+
 ### What it is
 + A hash map consists of a set of keys, each uniquely mapping to an element. The keys are transformed by an algorithm into an integer which is then used as an index into an array.
 + Actual elements are stored in array
