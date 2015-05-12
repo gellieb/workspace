@@ -83,4 +83,3 @@
 + Performance degrades as table fills up (again, large constant time)
 + Large memory overhead
 
-
