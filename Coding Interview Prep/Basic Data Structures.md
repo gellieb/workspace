@@ -88,13 +88,22 @@
 _Operations_
 + **Upheap**: Add node to heap
     + Compare node's value to its parent node. 
-    + If value is less than its parent node, switch the two nodes and continue the process. Otherwise, because the parent node is less than the child node, stop the process.
-    + If parent node is less than the node being upheaped, you know the heap is correct. The parent is also greater than its own parent, all the way up to the root
+        + If value is less than its parent node, switch the two nodes and continue the process. Otherwise, because the parent node is less than the child node, stop the process.
+        + If parent node is less than the node being upheaped, you know the heap is correct. The parent is also greater than its own parent, all the way up to the root
+    + Add to the rightmost unoccupied leaf on the lowest level. Then upheap the node until it has reached its proper position.
+        + Maintain heap's order and remain a complete tree
 + **Downheap**: Remove node from heap (similar to upheaping process)
-    + Compare 
+    + Compare node's value to its two children.
+        + If node is less than **both** its children, it remains in place. Otherwise, switch it with the child of lowest value. Ensure that of the three nodes being compared, the parent node is the lowest. 
+        + Downheap process must be repeated until the node is less than both its children.
++ **Removing root node**: 
+    + When you take the node out of the tree, you replace it with the "last" node in the tree: node on the last level and rightmost on that level.
+    + Once top node has been replaced, downhead until it reaches the proiper position.
 
-
-
+###Efficiency of a heap
++ Most of time is taken by upheaping and downheaping. 
++ **Max number of levels of a complete tree is log(n)+1*, where n is the number nodes in the tree.
++ Because upheap or downheap mvoes an element from one level to another, the order of **adding to or removing from a heap is O(logn)**, as long as switches are made only log(n) times or one less time than the unbmer of levels in the tree (consider that a two level tree can have only one switch)
 
 ##Hash Map
 + aka: hash table
