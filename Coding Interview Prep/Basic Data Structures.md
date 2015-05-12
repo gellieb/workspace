@@ -65,6 +65,37 @@
 + Slower iteration 
 + Elements must have ordering
 
+##Heaps
+###What it is
++ A heap is a partially sorted binary tree. 
++ Not completely in order, but has sorting principle:
+    + Every node has a value less (or greater) than either of its children
++ "Complete tree": has no gaps between leaves.
+    + Tree has every level filled in before adding a node to the next level. 
+    + Given a level, nodes fill in from left to right, with no breaks
++ Min-heap: keys of parent nodes are always less than or equal to those of the children and the lowest key is the root node.
++ Max-heap: keys of parent nodes are always greater than or equal to those of the children and the highest key is the root node.
+    
+###Why use a heap?
++ A heap can be thought of as a priority queue.
+    + The most important node will always be at the top. When removed, the replacement will be the most important.
++ **USEFUL** when: algorithms require certain things to be processed in a complete order but when you don't want to perform a full sort or need to know anything about the rest of the nodes
+    + ie. Dijkstra's Algorithm, a well-known algorithm for finding the shortest distance between nodes in a graph, can be optimized by using a priority queue.
++ Heaps can sort data.
++ Efficiency: O(nlogn)-- not the fastest possible sorting algorithm
+
+###How to implement a heap
+_Operations_
++ **Upheap**: Add node to heap
+    + Compare node's value to its parent node. 
+    + If value is less than its parent node, switch the two nodes and continue the process. Otherwise, because the parent node is less than the child node, stop the process.
+    + If parent node is less than the node being upheaped, you know the heap is correct. The parent is also greater than its own parent, all the way up to the root
++ **Downheap**: Remove node from heap (similar to upheaping process)
+    + Compare 
+
+
+
+
 ##Hash Map
 + aka: hash table
 
