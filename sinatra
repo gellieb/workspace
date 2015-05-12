@@ -1,0 +1,30 @@
+#Sinatra
+
+
+get = read
+post = create info
+put = replace something
+delete = delete
+
+
+###Routes
+```
+* get '/' do 
+    @title = 'hey'
+    erb :index
+
+    end
+    
+* 
+
+
+```
+
+###View
+####erb files:
+**<%= yield %>** : like a string interpolation. 
+
++ **NO ACTIVERECORD IN VIEW!!**
++ view files: 
++ <%= : means to PRINT onto screen
++ <% : erb without printing onto screen
