@@ -11,3 +11,10 @@ A common problem in communications networks and circuit design is that of connec
 ex. The figure below shows three spanning trees for the same graph. The shaded rectangles indicate the edges in the spanning tree. Only the middle and right ones are MST. (Note: not only do the edges sum to the same value, but the same set of edge weights appear in the two MSTs. Coincidence?)
 ![](../imgs/MST_graphs.png)
 
+###Steiner Minimum Trees
+In general, the problem of determining the lowest cost interconnection tree between a given set of nodes, assuming that you are allowed additional nodes -- **Steiner points** is called the *Steiner minimum tree* (SMT)
+
+![](../imgs/MST_and_SMT_comparison.png)
+
+##Prim's algorithm
++ greedy algorithm that is generic approach for computing a minimum spanning tree.
