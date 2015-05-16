@@ -6,6 +6,7 @@
 + **priority queue:** data structure that stores a set of items, where each item is associated with *key value*.
     + Operations to add, remove, decrease key: Efficiency: **O(logn) time**, where n is the number of items in the heap.
     + Heap operations cause items in the heap to be moved around. References cannot be moved (because they are our only way of accessing heap nodes from the outside. Use Prim's algorithm.
+    + [more about applications of heap data structure](http://www.geeksforgeeks.org/applications-of-heap-data-structure/)
     
 ![](../imgs/graph_algorithm_flow.png)
 
